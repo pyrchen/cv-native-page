@@ -62,8 +62,6 @@
 
 	function assignBasicListeners() {
 		refreshBtn.addEventListener('click', () => {
-			window.scrollTo({ top: 0 });
-			toggleBodyOverflow(true);
 			refresh();
 		});
 	}
@@ -77,6 +75,7 @@
 		siteLoader.remove();
 		headerInfo.style.opacity = '1';
 		headerInfo.style.transform = 'scale(1)';
+		window.scrollTo({ top: 0 });
 	}
 	function end(ms) {
 		setTimeout(() => {
