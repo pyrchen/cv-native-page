@@ -1,48 +1,56 @@
 (function () {
-	document.addEventListener('DOMContentLoaded', onDomLoaded);
+	const slider = document.getElementById('slider');
+	const sliderMainParentBlock = slider.closest('.main-big-block');
+	const slides = [...slider.querySelectorAll(`.slide`)];
+	const buttons = document.querySelectorAll('.slider-buttons div[data-move]');
+	const slidesAmount = slider.querySelectorAll('.slide').length;
 
 	let currentSlide = 0;
-	let cursorX = 0;
-	function onDomLoaded() {
-		const slider = document.getElementById('slider');
-		const buttons = document.querySelectorAll('.slider-buttons div[data-move]');
+	const filledSlidesNums = [];
+	const skillsBySlides = slides.reduce((acc, slide) => {
+		const skills = slide.querySelectorAll(`.skill`);
+		acc.push([...skills]);
+		return acc;
+	}, []);
 
-		const slidesAmount = slider.querySelectorAll('.slide').length;
+	assignClickEventsOnButtons(buttons);
+	assignScrollEventOnDocument();
+
+	function assignClickEventsOnButtons(buttons) {
 		buttons.forEach((el) => {
 			el.addEventListener('click', (event) => onButtonClick(event.target, slidesAmount, slider));
 		});
-
-		// setInterval(() => {
-		// 	goNextSlide(slidesAmount, slider)
-		// }, 5000);
-
-		// slider.addEventListener('mousedown', (event) => {
-		// 	slider.style.cursor = 'grab';
-		// 	cursorX = event.x;
-		//
-		// 	document.onmousemove = onSliderMouseMove;
-		// })
-		//
-		// document.addEventListener('mouseup', (event) => {
-		// 	slider.style.cursor = '';
-		//
-		// 	if (event.x - cursorX > 40) goPrevSlide(slidesAmount, slider);
-		// 	else if (event.x - cursorX < -40) goNextSlide(slidesAmount, slider);
-		// 	else moveSliderBySlides(slider, slidesAmount);
-		//
-		// 	document.onmousemove = null;
-		// });
-		//
-		// function onSliderMouseMove(event) {
-		// 	console.log(event.x)
-		// 	moveSlideByPx(slider, event.x - cursorX);
-		// }
 	}
 
+	function assignScrollEventOnDocument() {
+		document.addEventListener('scroll', () => {
+			if (
+				!filledSlidesNums.includes(currentSlide) && scrollY + document.documentElement.clientHeight >=
+				sliderMainParentBlock.offsetTop + slider.offsetTop + slider.clientHeight
+			) {
+				filledSlidesNums.push(currentSlide);
+				skillsBySlides[currentSlide].forEach((skillParent, index) => {
+					fillSkillProgressBar(skillParent, index, 150);
+				});
+			}
+		});
+	}
+
+	function fillSkillProgressBar(skillParent, skillIndex, delayMs = 0) {
+		const [skillHeading, skillProgress] = skillParent.children;
+		const skillProgressBarElement = skillProgress.children[0];
+		const skillPercentElement = skillHeading.children[0];
+		setTimeout(() => {
+			skillProgressBarElement.style.width = skillPercentElement.innerText;
+		}, skillIndex * delayMs);
+	}
 	function onButtonClick(btn, slidesAmount, slider) {
 		const isNext = btn.dataset.move === 'next';
 		if (isNext) goNextSlide(slidesAmount, slider);
 		else goPrevSlide(slidesAmount, slider);
+		!filledSlidesNums.includes(currentSlide) && skillsBySlides[currentSlide].forEach((skillParent, index) => {
+			fillSkillProgressBar(skillParent, index, 150);
+		});
 	}
 
 	function goNextSlide(amount, slider) {
@@ -72,9 +80,5 @@
 	function moveSliderBySlides(slider, amount) {
 		const singleSlideWidth = slider.offsetWidth / amount;
 		slider.style.transform = `translateX(-${singleSlideWidth * currentSlide}px)`;
-	}
-
-	function moveSlideByPx(slider, px) {
-		slider.style.transform = `translateX(${px}px)`;
 	}
 })()

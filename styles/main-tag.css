@@ -1,0 +1,228 @@
+main {
+    padding-bottom: 40px;
+    color: var(--text-1);
+}
+
+.main-big-block {
+    display: grid;
+    gap: 40px;
+    margin: 40px 0 0 0;
+}
+
+.main-small-block.section-holder {
+    position: relative;
+    display: grid;
+    gap: 20px;
+    align-self: flex-start;
+    align-content: flex-start;
+}
+
+.main-small-block,
+.main-big-block:not(.grid-two-columns) {
+    border: 1px solid var(--dark-1);
+    padding: 30px 30px 50px;
+}
+
+.main-big-block.in-view .super-block-heading svg,
+.main-big-block.in-view .super-block-heading svg g {
+    fill: var(--accent-2);
+}
+
+.main-big-block.in-view .divider {
+    border-color: var(--accent-3);
+}
+
+.main-big-block.in-view .image-wrapper {
+    border-bottom: 1px solid var(--accent-3);
+    box-shadow: 0 4px 2px -2px var(--accent-3);
+}
+
+.line-art {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+}
+
+.line-art div {
+    height: 1px;
+    width: 10px;
+    background-color: var(--dark-2);
+    transform: rotate(-45deg);
+}
+
+.line-art div {
+    margin-right: -3px;
+}
+
+.line-art div:last-of-type {
+    margin: 0;
+}
+
+.section-holder {
+    background-image: url("../assets/texture.png");
+}
+
+.section-holder .line-art-top {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -40%);
+}
+
+.section-holder .line-art-bottom {
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 100%);
+}
+
+.section-holder .line-art-left {
+    left: 0;
+    top: 50%;
+    transform: translate(-55%, -50%);
+}
+
+.section-holder .line-art-right {
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.section-holder .line-art-left, .section-holder .line-art-right {
+    grid-template-columns: auto;
+}
+
+.line-art-right div {
+    transform: rotate(45deg);
+    margin-bottom: 5px;
+}
+
+.line-art-left div {
+    transform: rotate(45deg);
+    margin-bottom: 5px;
+}
+
+.line-art-bottom div {
+    transform: rotate(45deg);
+}
+
+.heading-text {
+    margin: 20px 0 15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.sub-heading-text {
+    margin: 15px 0;
+    padding: 5px 0;
+    font-size: 16px;
+    font-weight: 400;
+    transition: 0.2s all;
+}
+
+.super-block.sub-heading-text,
+.super-block .heading-text {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.3s linear 0s, opacity 0.2s linear 0.1s;
+}
+
+.super-block.in-view .sub-heading-text,
+.super-block.in-view .heading-text {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.super-block.in-view .icon-container svg,
+.super-block.in-view .icon-container svg g {
+    fill: var(--accent-2);
+}
+
+.super-block:not(:has(.item-on-border)) {
+    overflow: hidden;
+}
+
+.super-block p {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-1);
+}
+
+.icon-container {
+    display: block;
+    max-width: 50px;
+    height: auto;
+}
+
+.icon-container > svg {
+    width: 100%;
+    height: 100%;
+}
+
+.super-block-heading .icon-container {
+    margin-bottom: 10px;
+}
+
+.super-block-heading > .heading-text {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.super-paragraph-heading > .heading-text {
+    margin: 10px 0;
+}
+
+.super-paragraph-heading .icon-container {
+    max-width: 36px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.super-block > *:last-child {
+    margin-bottom: 25px;
+}
+
+.heading-border {
+    position: relative;
+}
+
+.heading-border .heading {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+}
+
+.heading-border .heading .heading-text {
+    margin: 0;
+}
+
+.heading-border .item-on-border {
+    position: absolute;
+    top: -7px;
+    left: -30px;
+    transform: translate(-50%, 0);
+    max-width: 32px;
+    max-height: 32px;
+    overflow: hidden;
+    background-color: var(--light-1);
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.heading-border .item-on-border svg {
+    width: 100%;
+    height: 100%;
+}
+
+.row-icons {
+    display: flex;
+    align-items: center;
+}
+
+.row-icons > .icon-container {
+    max-width: 32px;
+    margin-right: 10px;
+}
+
+.row-icons > .icon-container:last-child svg path {
+    fill: var(--light-1);
+}

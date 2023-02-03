@@ -1,0 +1,86 @@
+#education .main-small-block:not(.section-holder) > .super-block:first-of-type .heading-text,
+#work-experience .main-small-block:not(.section-holder) > .super-block:first-of-type .heading-text {
+    margin-bottom: 50px;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+}
+
+.slider {
+    width: 300%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    transform: translateX(0);
+    transition: all 0.2s;
+}
+
+.slide {
+    display: grid;
+    gap: 25px;
+    align-content: flex-start;
+}
+
+.slide-header {
+    justify-self: right;
+}
+
+.slide .heading-text {
+    margin-bottom: 5px;
+}
+
+.skills-wrapper {
+    display: grid;
+    gap: 55px;
+}
+
+.skill {
+    display: grid;
+    gap: 6px;
+}
+
+.skill .skill-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill .skill-line {
+    width: 100%;
+    height: 2px;
+    border-radius: 2%;
+    background-color: var(--dark-1);
+}
+
+.skill-line-inner {
+    width: 0;
+    height: 100%;
+    background-color: var(--accent-2);
+    transition: width 0.8s ease-in;
+}
+
+.slider-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 25px;
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.slider-buttons > div {
+    font-size: 24px;
+    color: var(--text-1);
+    cursor: pointer;
+}
+
+.slider-buttons > div:first-of-type {
+    margin-right: 10px;
+}
+
+.slider-buttons > div:hover {
+    color: var(--light-1);
+}
+
+#education .main-small-block:not(.section-holder) .super-block:not(.super-block-heading, :first-of-type),
+#work-experience .main-small-block:not(.section-holder) .super-block:not(.super-block-heading, :first-of-type) {
+    padding: 20px 0;
+}

@@ -1,10 +1,31 @@
+html {
+    overflow-x: hidden;
+
+    margin-right: calc(-1 * (100vw - 100%));
+}
+
 body {
-    font-family: "JetBrains Mono";
+    font-family: "JetBrains Mono", sans-serif;
+    transition: background-color 0.2s;
+}
+
+body::-webkit-scrollbar-thumb {
+     background-color: var(--accent-3);
+}
+
+body::-webkit-scrollbar {
+     width: 4px;
+     background-color: var(--dark-3);
+}
+
+svg, svg g {
+    fill: var(--dark-4);
+    transition: all 0.2s;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
-    color: var(--text-color-2);
+    color: var(--text-1);
 }
 
 h1 {
@@ -25,4 +46,173 @@ h4 {
 
 h5 {
    font-size: 14px;
+}
+
+.site-loader {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 99999;
+    background-color: var(--dark-4);
+}
+
+.site-loader-text {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background-color: var(--light-1);
+    z-index: 10000;
+    transition: all 0.2s;
+    animation-name: toCircle;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+}
+
+.site-loader-text.before-finish {
+    background-color: var(--dark-4);
+    color: var(--light-1) !important;
+}
+
+.site-elements {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    --spinRound: 360deg;
+}
+
+.site-elements.spinning {
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+.site-elements.bounce-last > div:nth-of-type(3) {
+    animation-name: bounceLast;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.site-elements > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    background-color: white;
+    transition: transform 0.2s ease 0s;
+    --delay: 0.18s;
+}
+
+.site-elements > div:nth-of-type(3) {
+    transition-delay: calc(0 * var(--delay));
+}
+
+.site-elements > div:nth-of-type(4) {
+    transition-delay: calc(1 * var(--delay));
+}
+
+.site-elements > div:nth-of-type(5) {
+    transition-delay: calc(2 * var(--delay));
+}
+
+.site-elements > div:nth-of-type(6) {
+    transition-delay: calc(3 * var(--delay));
+}
+
+.site-elements > div:nth-of-type(7) {
+    transition-delay: calc(4 * var(--delay));
+}
+
+.site-elements > div:nth-of-type(8) {
+    transition-delay: calc(5 * var(--delay));
+}
+
+.site-elements > div:nth-of-type(1) {
+    transition-delay: calc(6 * var(--delay));
+}
+
+.site-elements > div:nth-of-type(2) {
+    transition-delay: calc(7 * var(--delay));
+}
+
+.site-elements.pulled:not(.bounce-last) > div:nth-of-type(3) {
+    transform: translate(-50%, calc(-50% - 200px));
+}
+
+.site-elements.pulled > div:nth-of-type(4) {
+    transform: translate(calc(-50% + 140px), calc(-50% - 146px));
+}
+
+.site-elements.pulled > div:nth-of-type(5) {
+    transform: translate(calc(-50% + 200px), -50%);
+}
+
+.site-elements.pulled > div:nth-of-type(6) {
+    transform: translate(calc(-50% + 140px), calc(-50% + 146px));
+}
+
+.site-elements.pulled > div:nth-of-type(7) {
+    transform: translate(-50%, calc(-50% + 200px));
+}
+
+.site-elements.pulled > div:nth-of-type(8) {
+    transform: translate(calc(-50% - 140px), calc(-50% + 146px));
+}
+
+.site-elements.pulled > div:nth-of-type(1) {
+    transform: translate(calc(-50% - 200px), -50%);
+}
+
+.site-elements.pulled > div:nth-of-type(2) {
+    transform: translate(calc(-50% - 140px), calc(-50% - 146px));
+}
+
+.site-elements.unpulled > div:nth-of-type(4) {
+    transform: translate(calc(-50% + 200px), -50%);
+}
+
+.site-elements.unpulled > div:nth-of-type(5) {
+    transform: translate(calc(-50% + 140px), calc(-50% + 146px));
+}
+
+.site-elements.unpulled > div:nth-of-type(6) {
+    transform: translate(-50%, calc(-50% + 200px));
+}
+
+.site-elements.unpulled > div:nth-of-type(7) {
+    transform: translate(calc(-50% - 140px), calc(-50% + 146px));
+}
+
+.site-elements.unpulled > div:nth-of-type(8) {
+    transform: translate(calc(-50% - 200px), -50%);
+}
+
+.site-elements.unpulled > div:nth-of-type(1) {
+    transform: translate(calc(-50% - 140px), calc(-50% - 146px));
+}
+
+.site-elements.unpulled > div:nth-of-type(2) {
+    transform: translate(-50%, calc(-50% - 200px));
+}
+
+
+
+.first-animation-end {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
 }

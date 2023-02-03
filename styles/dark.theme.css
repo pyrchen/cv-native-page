@@ -1,0 +1,95 @@
+body.dark {
+    background-color: var(--dark-4);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark p,
+body.dark div,
+body.dark input,
+body.dark textarea,
+body.dark .heading-text,
+body.dark .sub-heading-text {
+    color: var(--light-1);
+}
+
+body.dark svg,
+body.dark svg g {
+    fill: var(--light-1);
+}
+
+body.dark button {
+    color: var(--light-2);
+}
+
+body.dark button {
+    color: var(--light-1);
+}
+
+body.dark button.btn {
+    border-color: var(--light-2);
+}
+
+body.dark button.btn:hover {
+    border-color: var(--light-1);
+    color: var(--light-1);
+}
+
+body.dark .input-field input:focus,
+body.dark .input-field textarea:focus {
+    border-color: var(--light-2)
+}
+
+body.dark .input-field.filled input,
+body.dark .input-field.filled textarea {
+    border-color: var(--light-1);
+}
+
+body.dark .input-field.filled::before {
+    color: var(--light-2);
+}
+
+body.dark .item-on-border {
+    background-color: var(--dark-4);
+}
+
+body.dark .site-loader-text {
+    color: var(--text-1);
+}
+
+body.dark .slider-buttons > div {
+    color: var(--light-2);
+}
+
+body.dark .row-icons > .icon-container.discord-icon svg path {
+    fill: var(--dark-4);
+}
+
+body.dark .menu-wrapper.active {
+    background-color: var(--dark-3);
+}
+
+body.dark .menu-content ul > li:not(.filled)::before {
+    background-color: var(--dark-3);
+}
+
+body.dark .menu-btn,
+body.dark .menu-btn::before,
+body.dark .menu-btn::after {
+    background-color: var(--light-2);
+}
+
+body.dark .section-holder {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-size: 15px 15px;
+    background-image: repeating-linear-gradient(45deg, var(--dark-3) 0, var(--dark-3) 1px, var(--dark-4) 0, var(--dark-4) 50%);
+}
+
+body.dark .line-art div {
+    background-color: var(--light-2);
+}

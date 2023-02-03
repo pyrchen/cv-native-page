@@ -1,5 +1,5 @@
 .container {
-    max-width: 1170px;
+    max-width: 1200px;
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -39,17 +39,31 @@
     padding: 0;
 }
 
+.d-none {
+    display: none !important;
+}
+
+.image-wrapper {
+    transition: all 0.2s;
+}
+
+.info .sub-heading-text,
+.info .heading-text {
+    font-weight: 400;
+}
+
 .divider {
     display: block;
     height: 0;
     width: 20px;
-    border-bottom: 1px solid var(--text-color-2);
+    border-bottom: 1px solid var(--dark-1);
+    transition: all 0.2s;
 }
 
 .divider.horizontal {
     width: 0;
     height: 20px;
-    border-right: 1px solid var(--text-color-2);
+    border-right: 1px solid var(--dark-1);
 }
 
 .to-right {
@@ -85,7 +99,7 @@
     top: 50%;
     left: 0;
     font-size: 18px;
-    color: var(--text-color-3);
+    color: var(--dark-1);
     transform: translateY(-50%);
 }
 
@@ -95,7 +109,7 @@
 }
 
 .input-field.filled::before {
-    color: var(--text-color-2);
+    color: var(--dark-3);
 }
 
 .input-field:has(textarea)::before {
@@ -105,14 +119,15 @@
 
 .input-field input, .input-field textarea {
     padding: 6px 12px 6px 18px;
-    border-bottom: 1px solid var(--text-color-2);
+    border-bottom: 1px solid var(--dark-2);
     width: 100%;
     height: 100%;
     font-size: 14px;
+    background-color: transparent;
 }
 
 .input-field input:focus, .input-field textarea:focus {
-    border-color: var(--text-color-3);
+    border-color: var(--dark-3);
 }
 
 .input-field textarea {
@@ -126,22 +141,83 @@ button.btn {
     background-color: transparent;
     padding: 6px 12px;
     font-size: 14px;
-    border: 1px solid var(--text-color-2);
-    color: var(--text-color-2);
+    border: 1px solid var(--dark-2);
+    border-radius: 5px;
+    color: var(--dark-2);
     transition: all 0.2s;
 }
 
 button.btn:disabled {
-    border: 1px solid var(--text-color-1);
-    color: var(--text-color-1);
+    border: 1px solid var(--dark-1);
+    color: var(--dark-1);
 }
 
 button.btn:not(:disabled):hover {
-    background-color: var(--text-color-2);
-    color: white;
+    background-color: var(--dark-3);
+    color: var(--light-2);
 }
 
 button.btn:not(:disabled):active {
     transform: scale(0.95);
-    box-shadow: 0 0 5px var(--text-color-2);
+    box-shadow: 0 0 5px var(--dark-3);
+}
+
+.toggle {
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 14px;
+    cursor: pointer;
+    transform: translate3d(0, 0, 0);
+}
+
+.toggle:before {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #9A9999;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.toggle span {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: var(--light-2);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.toggle span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: -18px;
+    width: 56px;
+    height: 56px;
+    background: var(--accent-3);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+}
+
+.switch:checked + label.toggle:before {
+    background: var(--accent-1);
+}
+.switch:checked + label.toggle span {
+    background: var(--accent-2);
+    left: 17px;
+    transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+}
+.switch:checked + .toggle span:before {
+    opacity: 0;
+    transition: all 0.4s ease;
 }

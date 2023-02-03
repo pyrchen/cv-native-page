@@ -1,0 +1,16 @@
+.reach-me-form-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.reach-me-form-inputs > div:has(textarea) {
+    grid-column-start: -3;
+    grid-column-end: -1;
+}
+
+.communicate {
+    margin-top: -20px;
+}

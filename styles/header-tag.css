@@ -1,0 +1,83 @@
+header {
+    max-height: 100vh;
+    height: 100%;
+
+    background-image: url("../assets/header-image.jpg");
+    background-size: cover;
+    filter: grayscale(25%);
+
+    transition: all 0.2s;
+}
+
+header .container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .btn-refresh-animation {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-color: var(--dark-1);
+    color: var(--light-2);
+}
+
+header.loader-already-played {
+    height: 40vh;
+    transition: none;
+}
+
+header.loader-already-played .header__info {
+    transition: none;
+    transform: scale(1);
+    opacity: 1;
+}
+
+header .header-text {
+    color: var(--light-1);
+}
+
+.header__info {
+    position: relative;
+    display: grid;
+    gap: 20px;
+    padding: 40px;
+    transform: scale(0.7);
+    text-align: center;
+    justify-items: center;
+
+    transition: 0.2s all;
+}
+
+.header__info .bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--dark-4);
+    opacity: 0.6;
+}
+
+.header__info_fullname {
+    font-size: 42px;
+    font-weight: 400;
+    z-index: 1;
+}
+
+.header__info_qualification {
+    font-size: 22px;
+    font-weight: 300;
+    z-index: 1;
+}
+
+.logo__text {
+    padding: 14px 12px;
+
+    border-bottom: 2px solid var(--light-1);
+
+    font-weight: 700;
+}
