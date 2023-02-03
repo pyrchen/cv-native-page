@@ -39,7 +39,7 @@
 		static init() {
 			const themeSwitchEl = ThemeSetup.getThemeElement();
 
-			if (LS.get(LS_NAMES.THEME) === 'dark') {
+			if (LS.get(LS_NAMES.THEME) === 'dark' || document.body.classList.contains('dark')) {
 				ThemeSetup.isDark = true;
 				themeSwitchEl.checked = ThemeSetup.isDark;
 				ThemeSetup.changeBodyThemeClass();
