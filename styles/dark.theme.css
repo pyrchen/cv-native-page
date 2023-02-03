@@ -97,3 +97,8 @@ body.dark .line-art div {
 body.dark .hobbies-wrapper > div {
     background-color: var(--dark-3);
 }
+
+body.dark .main-big-block.in-view .image-wrapper {
+    border-bottom: 1px solid var(--accent-3);
+    box-shadow: 0 4px 2px -2px var(--accent-3);
+}

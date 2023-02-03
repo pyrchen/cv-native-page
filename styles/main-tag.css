@@ -32,11 +32,6 @@ main {
     border-color: var(--accent-3);
 }
 
-.main-big-block.in-view .image-wrapper {
-    border-bottom: 1px solid var(--accent-3);
-    box-shadow: 0 4px 2px -2px var(--accent-3);
-}
-
 .line-art {
     position: absolute;
     display: grid;
