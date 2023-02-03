@@ -93,3 +93,7 @@ body.dark .section-holder {
 body.dark .line-art div {
     background-color: var(--light-2);
 }
+
+body.dark .hobbies-wrapper > div {
+    background-color: var(--dark-3);
+}
